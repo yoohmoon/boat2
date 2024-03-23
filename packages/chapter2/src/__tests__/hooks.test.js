@@ -25,10 +25,10 @@ describe("hooks test", () => {
       const { useState } = createHooks(render);
 
       const { setA } = render();
-      expect(render).toBeCalled(1);
+      expect(render).toBeCalledTimes(1);
 
       setA("test");
-      expect(render).toBeCalled(2);
+      expect(render).toBeCalledTimes(2);
     });
 
     test("state의 값이 이전과 동일할 경우, 다시 실행되지 않는다.", () => {
@@ -40,13 +40,13 @@ describe("hooks test", () => {
       const { useState } = createHooks(render);
 
       const { setA } = render();
-      expect(render).toBeCalled(1);
+      expect(render).toBeCalledTimes(1);
 
       setA("test");
-      expect(render).toBeCalled(2);
+      expect(render).toBeCalledTimes(2);
 
       setA("test");
-      expect(render).toBeCalled(2);
+      expect(render).toBeCalledTimes(2);
     });
 
     test("hook의 callback이 실행 되기 이전에 resetContext를 실행해야 값이 정상적으로 반영된다.", () => {
@@ -75,7 +75,7 @@ describe("hooks test", () => {
       setB("bar-change");
       expect(result).toBe(`a: foo-change, b: bar-change`);
 
-      expect(render).toBeCalled(3);
+      expect(render).toBeCalledTimes(3);
     });
   });
 
